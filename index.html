@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayna Chawla — Backend Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+    <div class="preloader-logo">&lt;GC /&gt;</div>
+    <div class="preloader-bar"></div>
+</div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress" style="width: 0%"></div>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Nav Overlay -->
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#hero" class="nav-logo">&lt;GC /&gt;</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" onclick="closeNav()">About</a></li>
+            <li><a href="#skills" onclick="closeNav()">Skills</a></li>
+            <li><a href="#experience" onclick="closeNav()">Experience</a></li>
+            <li><a href="#projects" onclick="closeNav()">Projects</a></li>
+            <li><a href="#education" onclick="closeNav()">Education</a></li>
+            <li><a href="#contact" class="nav-cta" onclick="closeNav()">Let's Talk</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-gradient-blob blob-1"></div>
+    <div class="hero-gradient-blob blob-2"></div>
+    <div class="hero-gradient-blob blob-3"></div>
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="hero-content">
+        <div class="hero-left">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Backend Engineer
+            </div>
+            <p class="hero-greeting">// Hello World, I'm</p>
+            <h1 class="hero-name">
+                <span class="line-1">Gayna</span><br>
+                <span class="line-2">Chawla</span>
+            </h1>
+            <p class="hero-title">
+                <span class="typed-text" id="typedText"></span><span class="cursor-blink"></span>
+            </p>
+            <p class="hero-tagline">Building scalable, high-performance distributed systems — passionate about real-time architectures, algorithmic problem-solving, and crafting reliable backend solutions.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">
+                    <span class="btn-shine"></span>
+                    <i class="fas fa-paper-plane"></i> Get in Touch
+                </a>
+                <a href="#projects" class="btn-secondary">
+                    <i class="fas fa-code"></i> View My Work
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="300" data-suffix="+">0</div>
+                    <div class="stat-label">Problems Solved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="30" data-suffix="%">0</div>
+                    <div class="stat-label">Faster APIs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="7.1" data-suffix="">0</div>
+                    <div class="stat-label">GPA @ IITD</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="3" data-suffix="+">0</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-3d-card" id="hero3dCard">
+                <div class="hero-card-glow" id="heroCardGlow"></div>
+                <div class="hero-card-content">
+                    <div class="card-avatar">GC</div>
+                    <div class="card-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                        </div>
+                        <div class="terminal-line"><span class="t-gray">$</span> <span class="t-green">whoami</span></div>
+                        <div class="terminal-line"><span class="t-white">Gayna Chawla</span></div>
+                        <div class="terminal-line"><span class="t-gray">$</span> <span class="t-green">cat</span> <span class="t-blue">skills.txt</span></div>
+                        <div class="terminal-line"><span class="t-purple">C++</span> <span class="t-yellow">|</span> <span class="t-purple">Node.js</span> <span class="t-yellow">|</span> <span class="t-purple">Express</span></div>
+                        <div class="terminal-line"><span class="t-purple">MongoDB</span> <span class="t-yellow">|</span> <span class="t-purple">Docker</span> <span class="t-yellow">|</span> <span class="t-purple">AWS</span></div>
+                        <div class="terminal-line"><span class="t-gray">$</span> <span class="t-green">echo</span> <span class="t-pink">$STATUS</span></div>
+                        <div class="terminal-line"><span class="t-green">✓ IIT Delhi | CF Specialist</span></div>
+                        <div class="terminal-line"><span class="t-gray">$</span> <span class="t-blue">_</span><span class="cursor-blink" style="height:0.9em"></span></div>
+                    </div>
+                    <div class="card-status-bar">
+                        <div class="status-indicator">
+                            <span class="live-dot"></span> New Delhi, India
+                        </div>
+                        <div class="card-tech-row">
+                            <div class="card-tech-icon"><i class="fab fa-node-js"></i></div>
+                            <div class="card-tech-icon"><i class="fab fa-js-square"></i></div>
+                            <div class="card-tech-icon"><i class="fab fa-docker"></i></div>
+                            <div class="card-tech-icon"><i class="fab fa-aws"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-scroll">
+        <div class="scroll-mouse"></div>
+        <span>Scroll Down</span>
+    </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">01 // About Me</div>
+            <h2 class="section-title">Crafting <span class="gradient-word">scalable</span> solutions<br>from complex problems</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-visual reveal-left" style="position:relative;">
+                <div class="about-code-window">
+                    <div class="code-window-header">
+                        <div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div>
+                        <span class="code-window-title">GaynaChawla.js</span>
+                    </div>
+                    <div class="code-body">
+                        <div class="code-line"><span class="ck">const</span> <span class="cm">GaynaChawla</span> = {</div>
+                        <div class="code-line">&nbsp;</div>
+                        <div class="code-line">&nbsp;&nbsp;role: <span class="cs">"Backend Engineer"</span>,</div>
+                        <div class="code-line">&nbsp;&nbsp;college: <span class="cs">"IIT Delhi"</span>,</div>
+                        <div class="code-line">&nbsp;&nbsp;location: <span class="cs">"New Delhi, India"</span>,</div>
+                        <div class="code-line">&nbsp;</div>
+                        <div class="code-line">&nbsp;&nbsp;languages: [</div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"C++"</span>, <span class="cs">"JavaScript"</span>,</div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"TypeScript"</span></div>
+                        <div class="code-line">&nbsp;&nbsp;],</div>
+                        <div class="code-line">&nbsp;&nbsp;backend: [</div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"Node.js"</span>, <span class="cs">"Express"</span>,</div>
+                        <div class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"WebSockets"</span>, <span class="cs">"Docker"</span></div>
+                        <div class="code-line">&nbsp;&nbsp;],</div>
+                        <div class="code-line">&nbsp;</div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="cc">// Codeforces Specialist 💻</span></div>
+                        <div class="code-line">&nbsp;&nbsp;<span class="cm">isHireable</span>: () => <span class="cy">true</span>,</div>
+                        <div class="code-line">};</div>
+                    </div>
+                </div>
+                <div class="float-card fc1"><i class="fab fa-node-js"></i> Node.js Dev</div>
+                <div class="float-card fc2"><i class="fas fa-trophy"></i> CF Specialist</div>
+                <div class="float-card fc3"><i class="fas fa-bolt"></i> Real-time Systems</div>
+            </div>
+            <div class="about-text reveal-right">
+                <p>I'm a <strong>Computer Science-focused B.Tech student at IIT Delhi</strong> with hands-on backend engineering experience building scalable, high-performance distributed systems. I specialize in designing robust backend architectures and delivering reliable, production-ready services.</p>
+                <p>My expertise spans <strong>C++, Node.js, Express.js, WebSockets, and Docker</strong> — I build real-time applications, optimize API performance, and architect microservices that handle high concurrent loads. As a <strong>Codeforces Specialist</strong> with 300+ problems solved, I bring strong algorithmic thinking to every challenge.</p>
+                <p>With a completed <strong>3-month backend internship at Klarvia</strong> where I reduced API response times by 30% and integrated LLM-based workflows, I'm ready to contribute to large-scale, reliable, and data-intensive software systems at my next opportunity.</p>
+                <div class="about-metrics">
+                    <div class="metric-card">
+                        <div class="metric-value">30%</div>
+                        <div class="metric-label">API Response Speedup</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">300+</div>
+                        <div class="metric-label">Problems Solved</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">~30%</div>
+                        <div class="metric-label">Request Reduction</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">3mo</div>
+                        <div class="metric-label">Internship at Klarvia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SKILLS / TECH STACK ===== -->
+<section class="skills-section" id="skills">
+    <div class="section-container">
+        <div class="section-header reveal" style="text-align:center;">
+            <div class="section-label" style="justify-content:center;">02 // Tech Stack</div>
+            <h2 class="section-title">Technologies I <span class="gradient-word">work with</span></h2>
+            <p class="section-subtitle" style="margin:1rem auto 0;">Tools and technologies I use to bring products to life</p>
+            <div class="section-divider" style="margin:1.25rem auto 0;"></div>
+        </div>
+
+        <div class="skills-showcase reveal">
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fas fa-code"></i></div><div class="skill-name">C++</div></div>
+            <div class="skill-card"><div class="skill-icon si-js"><i class="fab fa-js-square"></i></div><div class="skill-name">JavaScript</div></div>
+            <div class="skill-card"><div class="skill-icon si-ts"><i class="fas fa-code"></i></div><div class="skill-name">TypeScript</div></div>
+            <div class="skill-card"><div class="skill-icon si-spring"><i class="fab fa-node-js"></i></div><div class="skill-name">Node.js</div></div>
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fas fa-server"></i></div><div class="skill-name">Express.js</div></div>
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fas fa-plug"></i></div><div class="skill-name">WebSockets</div></div>
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fas fa-exchange-alt"></i></div><div class="skill-name">REST APIs</div></div>
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fas fa-cubes"></i></div><div class="skill-name">Microservices</div></div>
+            <div class="skill-card"><div class="skill-icon si-mongo"><i class="fas fa-leaf"></i></div><div class="skill-name">MongoDB</div></div>
+            <div class="skill-card"><div class="skill-icon si-postgres"><i class="fas fa-database"></i></div><div class="skill-name">PostgreSQL</div></div>
+            <div class="skill-card"><div class="skill-icon si-docker"><i class="fab fa-docker"></i></div><div class="skill-name">Docker</div></div>
+            <div class="skill-card"><div class="skill-icon si-aws"><i class="fab fa-aws"></i></div><div class="skill-name">AWS</div></div>
+            <div class="skill-card"><div class="skill-icon si-git"><i class="fab fa-git-alt"></i></div><div class="skill-name">Git & GitHub</div></div>
+            <div class="skill-card"><div class="skill-icon si-jenkins"><i class="fas fa-cogs"></i></div><div class="skill-name">CI/CD</div></div>
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fab fa-html5"></i></div><div class="skill-name">HTML</div></div>
+            <div class="skill-card"><div class="skill-icon si-default"><i class="fab fa-css3-alt"></i></div><div class="skill-name">CSS</div></div>
+        </div>
+
+        <div class="skills-breakdown">
+            <div class="breakdown-grid">
+                <div class="breakdown-card reveal" data-delay="1">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon"><i class="fas fa-code"></i></div>
+                        <h3>Backend Development</h3>
+                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">Node.js / Express.js</span><span class="skill-bar-percent">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">REST API Design</span><span class="skill-bar-percent">88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">WebSockets / Real-time</span><span class="skill-bar-percent">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">Microservices Architecture</span><span class="skill-bar-percent">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">Socket Programming</span><span class="skill-bar-percent">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+                </div>
+                <div class="breakdown-card reveal" data-delay="2">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Languages & Frontend</h3>
+                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">C++</span><span class="skill-bar-percent">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">JavaScript (ES6+)</span><span class="skill-bar-percent">90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">TypeScript</span><span class="skill-bar-percent">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">HTML & CSS</span><span class="skill-bar-percent">78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="78"></div></div></div>
+                </div>
+                <div class="breakdown-card reveal" data-delay="3">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon"><i class="fas fa-cloud"></i></div>
+                        <h3>Databases & Cloud</h3>
+                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">MongoDB</span><span class="skill-bar-percent">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">PostgreSQL</span><span class="skill-bar-percent">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">Docker</span><span class="skill-bar-percent">82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">AWS (Basics) / CI/CD</span><span class="skill-bar-percent">75%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div></div>
+                </div>
+                <div class="breakdown-card reveal" data-delay="4">
+                    <div class="breakdown-header">
+                        <div class="breakdown-icon"><i class="fas fa-brain"></i></div>
+                        <h3>CS Fundamentals & DSA</h3>
+                    </div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">Data Structures & Algorithms</span><span class="skill-bar-percent">92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">OOP & Design Patterns</span><span class="skill-bar-percent">85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">DBMS & Operating Systems</span><span class="skill-bar-percent">83%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="83"></div></div></div>
+                    <div class="skill-bar-item"><div class="skill-bar-info"><span class="skill-bar-name">Computer Networks</span><span class="skill-bar-percent">80%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section class="experience" id="experience">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">03 // Experience</div>
+            <h2 class="section-title">My professional <span class="gradient-word">journey</span></h2>
+            <p class="section-subtitle">Building impactful backend systems at scale</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="timeline">
+
+            <!-- ===== KLARVIA ===== -->
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-card">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">Backend Engineering Intern</h3>
+                            <div class="timeline-company">Klarvia</div>
+                            <div class="timeline-location"><i class="fas fa-map-marker-alt"></i> New Delhi, India</div>
+                        </div>
+                        <span class="timeline-date">Nov 2025 — Feb 2026</span>
+                    </div>
+                    <div class="timeline-tech">
+                        <span>Node.js</span><span>Express.js</span><span>REST APIs</span><span>Microservices</span>
+                        <span>LLM/AI</span><span>Agile/Scrum</span>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Built and optimized <strong>RESTful APIs</strong> with Node.js & Express.js; reduced average API response time by <strong>30%</strong> via query optimization and middleware refactoring.</li>
+                        <li>Integrated <strong>LLM-based workflows</strong> into backend services; hands-on with AI tool evaluation, prompt engineering, and agentic pipelines.</li>
+                        <li>Contributed to a <strong>microservices codebase</strong> under high concurrent load; improved reliability by diagnosing and resolving request pipeline bottlenecks.</li>
+                        <li>Delivered features on schedule in an <strong>Agile (Scrum)</strong> team — sprint planning, standups, and code reviews across a 3-month engagement.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="projects-section" id="projects">
+
+    <div class="section-container">
+
+        <div class="section-header reveal">
+            <div class="section-label">04 // Projects</div>
+
+            <h2 class="section-title">
+                Featured <span class="gradient-word">work</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Real-world applications showcasing backend & algorithmic expertise
+            </p>
+
+            <div class="section-divider"></div>
+        </div>
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card reveal" style="margin-bottom: 35px;">
+
+            <div class="project-card-header">
+
+                <div class="project-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <div>
+                    <div class="project-title">
+                        Real-Time Collaboration App
+                    </div>
+
+                    <div class="project-subtitle">
+                        Multi-user collaborative editing with live sync
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="project-desc">
+                Built a multi-user collaborative editing tool with real-time synchronization
+                via WebSockets. The application features conflict-resolution logic for concurrent
+                edits and is structured as loosely coupled microservices deployed with Docker for
+                horizontal scalability.
+            </p>
+
+            <ul class="project-bullets">
+
+                <li>
+                    Built a <strong>multi-user collaborative editing tool</strong> with real-time sync via
+                    <strong>WebSockets</strong>; replaced HTTP polling, reducing redundant server
+                    requests by <strong>~30%</strong>.
+                </li>
+
+                <li>
+                    Implemented <strong>conflict-resolution logic</strong> for concurrent edits; applied
+                    <strong>distributed systems</strong> principles to maintain data consistency across
+                    simultaneous sessions.
+                </li>
+
+                <li>
+                    Structured backend as loosely coupled <strong>microservices</strong> deployed with
+                    <strong>Docker</strong>; designed for horizontal scalability and ease of maintenance.
+                </li>
+
+            </ul>
+
+            <div class="project-tech">
+
+                <span>Node.js</span>
+                <span>WebSockets</span>
+                <span>Docker</span>
+                <span>JavaScript</span>
+                <span>Microservices</span>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card reveal" style="margin-bottom: 35px;">
+
+            <div class="project-card-header">
+
+                <div class="project-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+
+                <div>
+                    <div class="project-title">
+                        Rubik's Cube Solver
+                    </div>
+
+                    <div class="project-subtitle">
+                        Optimal IDA* algorithm for minimum-move solutions
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="project-desc">
+                Implemented an optimal IDA* (Iterative Deepening A*) search algorithm to solve
+                any scrambled Rubik's Cube configuration. The solver finds the minimum move solution
+                using an admissible heuristic, handling the ~43 quintillion possible cube states
+                within practical runtime.
+            </p>
+
+            <ul class="project-bullets">
+
+                <li>
+                    Implemented an optimal <strong>IDA* (Iterative Deepening A*) search algorithm</strong>
+                    to solve any scrambled Rubik's Cube configuration; finds the minimum move solution
+                    using an admissible heuristic.
+                </li>
+
+                <li>
+                    Designed a <strong>pattern database heuristic</strong> to estimate lower-bound move costs,
+                    significantly pruning the search space and improving solver efficiency over brute-force
+                    BFS/DFS approaches.
+                </li>
+
+                <li>
+                    Applied core <strong>DSA concepts</strong> including graph traversal, state-space search,
+                    and memoization; optimized memory usage to handle the ~43 quintillion possible cube
+                    states within practical runtime.
+                </li>
+
+            </ul>
+
+            <div class="project-tech">
+
+                <span>C++</span>
+                <span>DSA</span>
+                <span>Graph Search</span>
+                <span>Heuristics</span>
+
+            </div>
+
+        </div>
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card reveal">
+
+            <div class="project-card-header">
+
+                <div class="project-icon">
+                    <i class="fas fa-chess-queen"></i>
+                </div>
+
+                <div>
+                    <div class="project-title">
+                        N-Queens Visualiser
+                    </div>
+
+                    <div class="project-subtitle">
+                        Interactive backtracking algorithm animation
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="project-desc">
+                Built an interactive N-Queens problem visualiser that animates the backtracking
+                algorithm step-by-step, making constraint satisfaction and recursion concepts
+                visually intuitive. Features configurable board sizes with real-time conflict
+                detection highlighting.
+            </p>
+
+            <ul class="project-bullets">
+
+                <li>
+                    Built an interactive <strong>N-Queens problem visualiser</strong> that animates the
+                    <strong>backtracking algorithm</strong> step-by-step, making constraint satisfaction
+                    and recursion concepts visually intuitive.
+                </li>
+
+                <li>
+                    Implemented configurable board sizes (N=4 to N=12) with real-time
+                    <strong>conflict detection</strong> highlighting; allows users to observe pruning
+                    decisions and solution paths as they unfold.
+                </li>
+
+                <li>
+                    Optimized rendering performance for large N values using efficient
+                    <strong>DOM manipulation</strong> and state management; ensured smooth animation
+                    across all modern browsers without external libraries.
+                </li>
+
+            </ul>
+
+            <div class="project-tech">
+
+                <span>JavaScript</span>
+                <span>Backtracking</span>
+                <span>HTML</span>
+                <span>CSS</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section class="education-section" id="education">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">05 // Education</div>
+            <h2 class="section-title">Academic <span class="gradient-word">background</span></h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="edu-card reveal">
+            <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="edu-info">
+                <h3>Indian Institute of Technology Delhi</h3>
+                <div class="edu-degree">B.Tech in Civil Engineering (CS-Focused)</div>
+                <div class="edu-meta">
+                    <span><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
+                    <span><i class="fas fa-calendar-alt"></i> 2024 — 2028</span>
+                </div>
+                <div class="edu-cgpa"><i class="fas fa-star"></i> GPA: 7.1 / 10</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-section" id="contact">
+    <div class="contact-bg-glow"></div>
+    <div class="section-container">
+        <div class="section-header reveal" style="text-align:center;">
+            <div class="section-label" style="justify-content:center;">06 // Contact</div>
+            <h2 class="section-title">Let's build something<br><span class="gradient-word">amazing together</span></h2>
+            <div class="section-divider" style="margin:1.25rem auto 0;"></div>
+        </div>
+        <div class="contact-content reveal">
+            <p>I'm a CS-focused B.Tech student at IIT Delhi with hands-on backend engineering experience and a passion for building scalable distributed systems. Whether you need a backend engineer for your team or have an exciting project in mind — I'd love to connect and explore how I can contribute!</p>
+            <div class="contact-cards">
+                <a href="mailto:gaynachawla@gmail.com" class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <span>Email</span>
+                    <strong>gaynachawla@gmail.com</strong>
+                </a>
+                <a href="https://linkedin.com/in/gayna-chawla" target="_blank" class="contact-card">
+                    <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <span>LinkedIn</span>
+                    <strong>Gayna Chawla</strong>
+                </a>
+                <a href="tel:+919650343543" class="contact-card">
+                    <div class="contact-card-icon"><i class="fas fa-phone-alt"></i></div>
+                    <span>Phone</span>
+                    <strong>+91 9650343543</strong>
+                </a>
+            </div>
+            <a href="mailto:gaynachawla@gmail.com" class="contact-cta-btn">
+                <span class="btn-shine"></span>
+                <i class="fas fa-paper-plane"></i> Say Hello
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">&lt;GC /&gt;</div>
+        <div class="footer-text">Designed & Built by <span>Gayna Chawla</span> &nbsp;•&nbsp; © 2025</div>
+        <div class="footer-socials">
+            <a href="mailto:gaynachawla@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/gayna-chawla" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/gaynachawla" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="tel:+919650343543" title="Phone"><i class="fas fa-phone-alt"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
